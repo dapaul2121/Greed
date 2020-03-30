@@ -13,5 +13,7 @@ app.use(express.static(path.join(__dirname, '../client/dist')));
 app.get('/addHand', hand.addHand)
 app.get('/updateHands', hand.updateHands)
 app.delete('/takeCard/:id', hand.takeCard)
+app.get('/drawCard', hand.drawCard)
+app.get('/resetGame', hand.resetGame)
 
 app.listen(port, () => console.log(`listening on port port!`));

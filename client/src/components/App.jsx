@@ -1,21 +1,22 @@
 import React from 'react';
 import HandAdder from './HandAdder'
 import HandList from './HandList'
+import CardDraw from './CardDraw'
 import axios from 'axios';
+import ResetGame from './ResetGame'
 
 class App extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            hands: [],//[[{name: 'test1'},{name: 'test1.5'}],[{name: 'test2'}],[{name: 'test3'}]],
+            hands: [],
             firsCardChosen: false
         }
-        // this.addHand = this.addHand.bind(this)
         this.updateHands = this.updateHands.bind(this)
     }
 
     componentDidMount() {
-        setInterval(this.updateHands, 2000)
+        setInterval(this.updateHands, 500)
     }
 
     updateHands() {
@@ -28,15 +29,14 @@ class App extends React.Component {
             })
     }
 
-
-
-
     render() {
         return (
-            <div>
+            <div style = {{font: 'Courier New'}}>
                 <div>Greed</div>
+                <ResetGame />
                 <HandAdder firstCardChosen = {this.state.firstCardChosen} />
                 <HandList hands = {this.state.hands}/>
+                <CardDraw />
             </div>
         )
     }

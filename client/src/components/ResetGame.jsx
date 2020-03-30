@@ -4,19 +4,19 @@ import axios from 'axios'
 const HandAdder = function(props) {
     const firstCardChosen = props.firstCardChosen
 
-    const addHand = () => {
-        axios.get('/addHand')
+    const resetGame = () => {
+        axios.get('/resetGame')
             .then((response) => {
                 console.log(response)
             })
             .catch((err) => {
-                console.log(err)
+                console.log(response)
             })
 
     }
 
     return (
-        <button type="button" onClick = {() => addHand()}>Add Player</button>
+        <button type="button" style = {{marginRight: '10px'}} onClick = {() => resetGame()}>Reset Game</button>
     )
 
 }
